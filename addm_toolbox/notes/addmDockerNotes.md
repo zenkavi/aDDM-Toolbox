@@ -34,3 +34,10 @@ docker run --rm -ti -v /tmp/.X11-unix:/tmp/.X11-unix -e "DISPLAY=${HOSTNAME}:0" 
 ```
 
 # TBD Notebook Container
+
+See `addm_nb.Dockerfile` that is currently breaking.
+
+```
+Successfully built future numpy matplotlib addm_toolbox
+Failed to build pandas scipy
+```
