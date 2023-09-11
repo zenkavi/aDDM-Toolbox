@@ -4,13 +4,23 @@
 FROM jupyter/minimal-notebook:python-3.8
 
 USER root
-RUN apt update
-RUN apt install -y pkg-config
-RUN apt install -y tk
-RUN apt install -y libfreetype6-dev
-RUN apt install -y libpng-dev
-RUN apt install -y g++
-RUN apt install -y gcc
+# RUN apt update
+# RUN apt install -y pkg-config
+# RUN apt install -y tk
+# RUN apt install -y libfreetype6-dev
+# RUN apt install -y libpng-dev
+# # RUN apt install -y g++
+# RUN apt install -y gcc
+# USER root
+
+# ffmpeg for matplotlib anim & dvipng for latex labels
+RUN apt-get update && \
+    apt-get upgrade -y && \
+    apt-get install -y build-essential && \
+    apt-get install -y --no-install-recommends apt-utils && \
+    apt-get install -y --no-install-recommends ffmpeg dvipng && \
+    apt install -y graphviz &&\
+    rm -rf /var/lib/apt/lists/*
 
 # Create a Python 2.x environment using conda including at least the ipython kernel
 # and the kernda utility. Add any additional packages you want available for use
